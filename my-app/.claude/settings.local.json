@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(npm run build:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(vercel build)",
+      "Bash(vercel --version:*)",
+      "Bash(del package-lock.json 2)",
+      "Bash(nul)",
+      "Bash(del package.json)",
+      "Bash(rm:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []

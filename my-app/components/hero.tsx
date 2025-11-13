@@ -23,7 +23,7 @@ export function Hero({ onStartLearning }: HeroProps) {
 
         {/* Subtitle */}
         <p className="mb-8 text-pretty text-xl text-muted-foreground md:text-2xl">
-          Type what you want to learn, and we'll help you get started.
+          Type what you want to learn, and we&apos;ll help you get started.
         </p>
 
         {/* CTA Button */}

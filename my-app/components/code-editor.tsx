@@ -185,7 +185,7 @@ export function CodeEditor({ videoUrl, initialCode = "", onCodeChange }: CodeEdi
           </div>
         </CardHeader>
         <CardContent className="p-0 flex-1 flex flex-col overflow-hidden">
-          <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as any)} className="w-full h-full flex flex-col">
+          <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as "editor" | "output")} className="w-full h-full flex flex-col">
             <TabsList className="w-full justify-start rounded-none border-b">
               <TabsTrigger value="editor">Editor</TabsTrigger>
               <TabsTrigger value="output">

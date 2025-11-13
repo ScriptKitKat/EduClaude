@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
                         textContent.match(/```\n?([\s\S]*?)\n?```/);
       const jsonText = jsonMatch ? jsonMatch[1] : textContent;
       planData = JSON.parse(jsonText.trim());
-    } catch (parseError) {
+    } catch {
       // If parsing fails, return the raw text for the user to see
       return NextResponse.json({
         success: false,
@@ -92,10 +92,10 @@ export async function POST(req: NextRequest) {
         { role: "assistant", content: textContent },
       ],
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error generating learning plan:", error);
     return NextResponse.json(
-      { error: error.message || "Failed to generate learning plan" },
+      { error: error instanceof Error ? error.message : "Failed to generate learning plan" },
       { status: 500 }
     );
   }

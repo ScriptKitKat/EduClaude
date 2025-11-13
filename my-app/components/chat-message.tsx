@@ -13,7 +13,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
   const isUser = message.role === "user"
 
   // Normalize content to string (handle both string and array formats)
-  const getContentAsString = (content: string | Array<any> | undefined): string => {
+  const getContentAsString = (content: string | Array<unknown> | undefined): string => {
     if (typeof content === "string") {
       return content
     }
@@ -31,7 +31,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
   }
 
   // UIMessage uses 'display' property for the content in newer AI SDK versions
-  const messageContent = (message as any).content || (message as any).display || ""
+  const messageContent = ((message as unknown as Record<string, unknown>).content || (message as unknown as Record<string, unknown>).display || "") as string | Array<unknown>
   const contentString = getContentAsString(messageContent)
 
   // Copy function
