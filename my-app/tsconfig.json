@@ -6,6 +6,11 @@
       "dom.iterable",
       "esnext"
     ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -15,6 +20,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "jsx": "react-jsx",
     "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
@@ -26,6 +32,9 @@
       "@/*": [
         "./*"
       ]
+      "@/*": [
+        "./*"
+      ]
     }
   },
   "include": [
@@ -33,7 +42,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    ".next\\dev/types/**/*.ts",
+    ".next\\dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
