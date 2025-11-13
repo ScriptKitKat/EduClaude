@@ -21,9 +21,10 @@ export function ChatInput({ input, handleInputChange, handleSubmit, isLoading }:
         value={input}
         onChange={handleInputChange}
         placeholder="What would you like to learn?"
-        className="min-h-[60px] resize-none rounded-2xl border-border bg-background/50 px-4 py-3 focus-visible:ring-2 focus-visible:ring-primary"
+        disabled={isLoading}
+        className="min-h-[60px] resize-none rounded-2xl border-border bg-background/50 px-4 py-3 focus-visible:ring-2 focus-visible:ring-primary disabled:opacity-50"
         onKeyDown={(e) => {
-          if (e.key === "Enter" && !e.shiftKey) {
+          if (e.key === "Enter" && !e.shiftKey && !isLoading) {
             e.preventDefault()
             handleSubmit(e as unknown as FormEvent<HTMLFormElement>)
           }
