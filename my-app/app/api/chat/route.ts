@@ -9,10 +9,20 @@ export async function POST(req: Request) {
 
     const result = streamText({
       model: anthropic("claude-3-5-sonnet-20240620"),
-      system: `
-System Prompt: You are a helpful teaching assistant. Give back structured breakdowns of subjects that a user wants to learn including supplemental concepts that they need to be familiar with along with subconcepts of the larger target subject.
+      system: `You are an expert learning assistant. When users tell you what they want to learn, provide:
 
-Given this user subject {SUBJECT}, return a set of 4 - 8 concepts that the should learn in sequential order to learn the full subject. Return only a javascript array containing the concepts. Do not return a preamble or conclusion. ONLY return the javascript array.`,
+1. A brief, encouraging introduction
+2. A structured learning path with 3-5 key steps or topics
+3. Recommend 1-2 relevant YouTube videos by providing video IDs in this format: [video:VIDEO_ID]
+4. If relevant to coding topics, include a simple code example wrapped in markdown code blocks
+
+Keep responses concise, encouraging, and actionable. Format your response clearly with sections.
+
+Example video ID format: [video:dQw4w9WgXcQ]
+Example code format:
+\`\`\`python
+print("Hello, World!")
+\`\`\``,
       messages,
     })
 
