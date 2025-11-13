@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     const { messages } = await req.json()
 
     const result = streamText({
-      model: anthropic("claude-3-5-sonnet-20240620"),
+      model: anthropic("claude-sonnet-4-5-20250929"),
       system: `You are an expert learning assistant. When users tell you what they want to learn, provide:
 
 1. A brief, encouraging introduction

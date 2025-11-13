@@ -19,11 +19,13 @@ image = modal.Image.debian_slim().pip_install([
     "pandas",
     "matplotlib",
     "requests",
+    "pydantic",
 ])
 
 # Web image for HTTP endpoints
 web_image = modal.Image.debian_slim().pip_install([
     "fastapi[all]",
+    "pydantic",
 ])
 
 

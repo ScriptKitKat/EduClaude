@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Initialize Anthropic client
-    const apiKey = process.env.CLAUDE_API_KEY
+    const apiKey = process.env.ANTHROPIC_API_KEY
     if (!apiKey) {
       return NextResponse.json(
         { error: 'API key not configured' },
@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
 
     // Generate coding problem using Claude
     const response = await client.messages.create({
-      model: 'claude-sonnet-4-20250514',
+      model: 'claude-sonnet-4-5-20250929',
       max_tokens: 2000,
       messages: [
         {
