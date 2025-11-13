@@ -1,4 +1,5 @@
 import { streamText } from "ai"
+import { anthropic } from "@ai-sdk/anthropic"
 
 export const maxDuration = 30
 
@@ -7,7 +8,7 @@ export async function POST(req: Request) {
     const { messages } = await req.json()
 
     const result = streamText({
-      model: "openai/gpt-4o-mini",
+      model: anthropic("claude-3-5-sonnet-20240620"),
       system: `You are an expert learning assistant. When users tell you what they want to learn, provide:
 
 1. A brief, encouraging introduction
